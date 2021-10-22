@@ -34,7 +34,7 @@
       <section class="india-week-of-women-in-quantum-page__section">
         <h2 v-text="agendaData.title" />
         <p v-text="agendaData.subtitle" />
-        <cv-tabs>
+        <cv-tabs class="india-week-of-women-in-quantum-page__curriculum-filter">
           <cv-tab
             v-for="day in agendaData.days"
             :key="day.tabName"
@@ -375,6 +375,14 @@ export default class IndiaWeekOfWomenInQuantumPage extends QiskitPage {
       margin-bottom: $spacing-05;
     }
   }
+
+  &__curriculum-filter {
+    ::v-deep .bx--tabs__nav-item--selected {
+      button {
+        border-bottom-color: $border-active-color;
+      }
+    }
+  }
 }
 </style>
 
@@ -407,10 +415,6 @@ export default class IndiaWeekOfWomenInQuantumPage extends QiskitPage {
       &:not(.bx--tabs__nav-item--selected):not(.bx--tabs__nav-item--disabled):not(.bx--tabs__nav-item--selected) a.bx--tabs__nav-link:active,
       &:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link, .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link:focus {
         color: $text-color-light;
-      }
-
-      &--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link {
-        border-bottom-color: $border-color-secondary;
       }
     }
 

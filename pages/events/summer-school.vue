@@ -40,7 +40,7 @@
       <section class="summer-school-page__section">
         <h2 v-text="agendaData.title" />
         <p v-text="agendaData.subtitle" />
-        <cv-tabs>
+        <cv-tabs class="summer-school-page__curriculum-filter">
           <cv-tab
             v-for="week in agendaData.weeks"
             :key="week.tabName"
@@ -158,6 +158,14 @@ export default class SummerSchoolPage extends QiskitPage {
 
     @include mq($until: large) {
       margin-bottom: $spacing-05;
+    }
+  }
+
+  &__curriculum-filter {
+    ::v-deep .bx--tabs__nav-item--selected {
+      button {
+        border-bottom-color: $border-active-color;
+      }
     }
   }
 }

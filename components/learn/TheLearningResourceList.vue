@@ -118,6 +118,12 @@ export default class TheLearningResourceList extends Vue {
     @include mq($until: medium) {
       margin-bottom: $spacing-05;
     }
+
+    ::v-deep .bx--tabs__nav-item--selected {
+      button {
+        border-bottom-color: $border-active-color;
+      }
+    }
   }
 }
 </style>
@@ -185,10 +191,6 @@ export default class TheLearningResourceList extends Vue {
 
     & .bx--tabs__nav-item {
       background-color: $background-color-white;
-
-      &--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link {
-        border-bottom-color: $border-active-color;
-      }
 
       svg {
         fill: $text-color;

@@ -15,7 +15,11 @@
     <div class="bx--grid">
       <div class="event-page__time-filters">
         <client-only>
-          <cv-tabs aria-label="navigation tab label" @tab-selected="selectTab">
+          <cv-tabs
+            class="event-page__time-filter"
+            aria-label="navigation tab label"
+            @tab-selected="selectTab"
+          >
             <cv-tab id="tab-1" label="Upcoming events" />
             <cv-tab id="tab-2" label="Past events" />
           </cv-tabs>
@@ -197,6 +201,18 @@ export default class EventsPage extends QiskitPage {
 }
 </script>
 
+<style lang="scss" scoped>
+.event-page {
+  &__time-filter {
+    ::v-deep .bx--tabs__nav-item--selected {
+      button {
+        border-bottom-color: $border-active-color;
+      }
+    }
+  }
+}
+</style>
+
 <style lang="scss">
 @import '~carbon-components/scss/globals/scss/typography';
 
@@ -207,10 +223,6 @@ export default class EventsPage extends QiskitPage {
     .bx--tabs__nav-link {
       color: black;
       border-bottom-color: $border-color;
-    }
-
-    .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link {
-        border-bottom-color: $border-color-secondary;
     }
 
     .bx--tabs__nav-item:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link,
