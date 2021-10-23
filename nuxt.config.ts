@@ -43,7 +43,7 @@ md.use(miAnchor, {
 
 const config: NuxtConfig = {
   // Disable Server Side rendering
-  ssr: false,
+  // ssr: false,
 
   env: {
     analyticsScriptUrl: IS_PRODUCTION
@@ -96,6 +96,7 @@ const config: NuxtConfig = {
   ** Plugins to load before mounting the App.
   */
   plugins: [
+    { src: '~/plugins/qiskit-components.ts', mode: 'client' },
     '~/plugins/router-hooks.ts',
     '~/plugins/carbon.ts',
     '~/plugins/deep-load.ts',
