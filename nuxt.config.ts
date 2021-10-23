@@ -42,6 +42,9 @@ md.use(miAnchor, {
 })
 
 const config: NuxtConfig = {
+  // Disable Server Side rendering
+  ssr: false,
+
   env: {
     analyticsScriptUrl: IS_PRODUCTION
       ? 'https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js'
@@ -172,7 +175,9 @@ const config: NuxtConfig = {
     // https://github.com/nuxt/nuxt.js/issues/3877
     splitChunks: {
       layouts: true
-    }
+    },
+
+    standalone: true
   },
 
   generate: {
